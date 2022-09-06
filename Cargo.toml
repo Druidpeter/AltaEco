@@ -1,0 +1,11 @@
+[package]
+name = "AltaEco"
+version = "0.1.0"
+edition = "2021"
+authors = ["DruidPeter"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tinybmp = "*0.3.3"
+clap = "3.2.20"
