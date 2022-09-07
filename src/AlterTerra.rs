@@ -26,7 +26,7 @@ struct Moulding{
 	
 	/// A 2D vector of changes to be applied to the
 	/// surface of a world.
-	mCoords: [mut [mut u16, MAX_COORD], MAX_COORD],
+	mCoords: [mut [mut MouldInfo, MAX_COORD], MAX_COORD],
 	mut mWindow: &[&[u16]];
 }
 
