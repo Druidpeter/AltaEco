@@ -15,12 +15,33 @@ struct RainKeeper{
 	//! Keeps track of precipitation levels over the world.
 
 	wCoords: [mut [mut [mut RainInfo, MAX_COORD], MAX_COORD], MAX_COORD];
-	mut wWindow: &[&[RainInfo]];
+	mut wWindow: &[&[RainInfo]] = &[&[RainInfo; 0]; 0];
 }
 
 impl Keeper for RainKeeper{
-	fn generateInitState() -> Self{
-		//
+	fn generateInitState(x: u16, y: u16, z: u16) -> Self{
+		// The code between the long slash comments really needs to be
+		// tested, checked, refactored, and placed into a helper function
+		// that is independent of RainKeeper, as many objects throughout
+		// the program rely on its functionality.
+
+		//#/////////////////////////////////////////////////////////
+		
+		let mut y_vec: Vec<Vec<&[u16]>> = vec![vec![&[u16]]];
+		
+		for k in 0..z{
+			let mut x_vec: Vec<&[u16]> = Vec::new();
+			
+			for j in 0..y{
+				x_vec.push(&wCoords[k][j])
+			}
+
+			y_vec.push(x_vec)
+		}
+
+		mWindow = &y_vec;
+
+		//#/////////////////////////////////////////////////////////		
 	}
 	
 	fn reGenState() -> Self{
