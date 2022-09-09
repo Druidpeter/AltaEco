@@ -108,6 +108,14 @@ impl TerraInfo{
 		//! Slightly randomize soil Erodibility and supportFactor values on a per
 		//! cell basis.
 	}
+
+	fn applyMoulding(&self, data: Moulding){
+		//! Apply contents of the moulding to the terrain.
+	}
+
+	pub fn getBounds1D(&self) -> usize{
+		self.xCoords*self.yCoords*self.zCoords
+	}
 }
 
 /// Information that is used to modify the data inside of a

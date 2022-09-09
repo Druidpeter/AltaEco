@@ -1,20 +1,18 @@
 #![allow(dead_code, non_snake_case)]
 
 mod AltaTerra;
+mod Precipitation;
 
 //mod clap;
 //mod tinybmp;
 
-use AltaTerra::{
+use crate::AltaTerra::{
 	TerraInfo,
 };
 
-/*
-use AlterTerra::{
-	WorldShaper,
-	Moulding
+use crate::Precipitation::{
+	RainKeeper,
 };
-*/
 
 // use embedded_graphics::prelude::*;
 //use tinybmp::{RawBmp, Bpp, Header, RawPixel, RowOrder};
@@ -26,17 +24,9 @@ fn main(){
 	// worldInfo and surfaceInfo.
 	
 	let terraInfo: TerraInfo = TerraInfo::createTerra("Terra1".to_string() , 100, 50, 8, 15);
-
+	let rainKeeper: RainKeeper = RainKeeper::init(&terraInfo);
+	
 	println!("Generated Terra!");
-
-	// let worldShaper: WorldShaper = WorldShaper{
-	// 	terraInfo: terraInfo,
-	// 	worldInfo: worldInfo,
-	// 	surfaceInfo: surfaceInfo
-	// };
-
-	// // rkc is a tuple containing map extents for this run.
-	// let rkc = terraInfo.getExtents();
 
 	
 	// // Next, instantiate a RainKeeper object with information from
